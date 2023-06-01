@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import axios from 'axios';
+import Navbar from "../Navbar";
 
 const baseURL= import.meta.env.VITE_BACKEND_URL;
 function CreatePost() {
@@ -25,6 +26,8 @@ function CreatePost() {
     });
   };
   return (
+    <>
+    <Navbar />
     <div className="createPostPage">
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
         <Form className="formContainer">
@@ -53,7 +56,7 @@ function CreatePost() {
           <button type="submit">enregistrer </button>
         </Form>
       </Formik>
-    </div>
+    </div></>
   );
 }
 

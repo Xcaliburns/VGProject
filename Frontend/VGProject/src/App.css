@@ -5,6 +5,25 @@
   --main-bg-color: dodgerblue;
   --shadowbox-color:rgba(30, 143, 255, 0.538);
 }
+
+
+
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width:100%;
+  height:3rem;
+  font-size: 2rem;  
+  background-color: var(--main-bg-color);  
+}
+.navbar a,.navbar a:hover{
+  margin-left: 20px;
+  text-decoration: none;  
+  color:white;
+  
+}
  
 .main{
   display: flex;
