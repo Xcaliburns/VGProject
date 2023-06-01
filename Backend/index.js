@@ -1,17 +1,21 @@
 const express = require('express');
 const app = express();
+const cors =require ('cors');
+
+
 app.use(express.json());
+app.use(cors());
 
 const db = require('./models'); // cet import est ici pour sequelize
 
 //Routers
 
-const postRouter= require ("./routes/Posts");
+const postRouter= require ('./routes/Posts');
 app.use ("/posts",postRouter);
 
 db.sequelize.sync().then(()=>{
-app.listen(5000,()=>{
-    console.log('server is running on port 5000');
+app.listen(8000,()=>{
+    console.log('server is running on port 8000');
 });
 });
 
