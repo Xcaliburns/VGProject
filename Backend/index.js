@@ -13,6 +13,9 @@ const db = require('./models'); // cet import est ici pour sequelize
 const postRouter= require ('./routes/Posts');
 app.use ("/posts",postRouter);
 
+const commentsRouter= require ('./routes/Comments');
+app.use ("/comments",commentsRouter);
+
 db.sequelize.sync().then(()=>{
 app.listen(8000,()=>{
     console.log('server is running on port 8000');
