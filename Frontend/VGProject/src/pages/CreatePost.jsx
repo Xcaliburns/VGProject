@@ -2,9 +2,12 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import axios from 'axios';
 import Navbar from "../Navbar";
+import { useNavigate } from "react-router-dom";
 
-const baseURL= import.meta.env.VITE_BACKEND_URL;
+
 function CreatePost() {
+const navigate =useNavigate();
+const baseURL= import.meta.env.VITE_BACKEND_URL;
 
   const initialValues={
     title:"",
@@ -21,8 +24,8 @@ function CreatePost() {
   )
 
   const onSubmit=(data)=>{
-    axios.post(`${baseURL}/posts`,data).then((res) => {
-      console.log('ca marche Youpi');
+    axios.post(`${baseURL}/posts`,data).then(() => {
+      navigate('/');
     });
   };
   return (

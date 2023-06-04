@@ -7,9 +7,9 @@ router.get("/",async(req,res)=>{
     res.json(listOfPosts) ;
 });
 
-router.get("/byid/:id",async (req,res)=>{
+router.get("/:id",async (req,res)=>{
     const id =req.params.id;
-    const post = await Posts.findByPK(id);    
+    const post = await Posts.findByPk(id);    
     res.json(post);
 })
 

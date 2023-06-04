@@ -18,7 +18,7 @@ function Home() {
     <Navbar />  
     <div className='main'> {listOfPosts.map((post) => {
         return (
-          <div className="post" key={post.id} onClick={()=>{navigate(`/post/byid/${post.id}`)}}>
+          <div className="post" key={post.id} onClick={()=>{navigate(`/post/${post.id}`)}}>
             <div className="post-title"> {post.title}</div>
             <div className="post-body"> {post.postText}</div>
             <div className="post-footer"> {post.username}</div>
