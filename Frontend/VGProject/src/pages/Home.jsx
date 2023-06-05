@@ -10,9 +10,10 @@ function Home() {
   useEffect(() => {
     axios.get(`${baseURL}/posts`).then((res) => {
       setListOfPosts(res.data);
+      console.log(res.data);
     });
   }, []);
-
+  console.log(listOfPosts);
   return (
     <>
     <Navbar />  

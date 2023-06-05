@@ -10,10 +10,14 @@ function Post() {
   let { id } = useParams();
 
   const [singlePost, setSinglePost] = useState({});
+  const [comments,setComments]=useState([]);
 
   useEffect(() => {
     axios.get(`${baseURL}/posts/${id}`).then((res) => {
       setSinglePost(res.data);
+    });
+     axios.get(`${baseURL}/comments/${id}`).then((res) => {
+      setComments(res.data);
     });
   }, []);
 
@@ -29,7 +33,18 @@ function Post() {
             <div className="post-text">{singlePost.postText}</div>
             <div className="footer">{singlePost.username}</div>
           </div>
-          <div className="left-side">commentaires</div>
+          <div className="left-side">
+            <div className="addCommentContainer">
+              <input type="textArea" placeholder="enter your comment..."  autoComplete="off"/>
+              <button type="submit">submit</button>
+            </div>
+            <div className="listOfComments">
+              {comments.map((comment,key)=>{
+                <div className="comment">{comment.commentBody}</div>
+              }
+              )}
+            </div>
+          </div>
         </>
       ) : (
         <p>singlePost is null</p>
