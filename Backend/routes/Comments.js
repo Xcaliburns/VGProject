@@ -3,8 +3,8 @@ const router=express.Router();
 const { Comments } = require("../models");
 
 
-router.get("/:postid",async (req,res)=>{
-    const postId =req.params.postid;
+router.get("/:postId",async (req,res)=>{
+    const postId =req.params.postId;
     const comments = await Comments.findAll({where :{PostId:postId}});    
     res.json(comments);
 })

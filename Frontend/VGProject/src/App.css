@@ -81,7 +81,7 @@
   justify-content: center;
   width: 500px;
   height: auto;
-  padding: 20px;
+  margin: 20px;
   border: 5px solid dodgerblue;
   border-radius: 5px;
 }
@@ -105,15 +105,60 @@ span{
 }
 
 .right-side{
+  display:flex;
+  flex-direction: column;
+  align-items: center;  
   width:50vw;
   text-align: left;
-  border:3px solid var(--main-bg-color);
+  
   height: 94vh;
+}
+
+.addCommentContainer{
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  width: 90%;
+  height:25%;
+  margin-top: 12px;
+  border:3px solid var(--main-bg-color);
+  border-radius: 7px;
+  font-size: 2rem;
+}
+
+input{
+
+  height:200px;
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.listOfComments{
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  width:90%;
+   
+}
+.comment{
+  text-align: left;
+  border:3px solid var(--main-bg-color);
+  width: 100%;
+  height :200px;
+  margin:10px ;
+  border-radius: 5px;
+  border:3px solid var(--main-bg-color);
+  word-wrap: break-word;
+   
+ 
+
 }
 .left-side{
   width:50vw;
   text-align: left;
-  border:3px solid var(--main-bg-color);
+  
 }
 
 .title{
