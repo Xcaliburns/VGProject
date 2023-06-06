@@ -1,33 +1,43 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../Navbar";
-import {useNavigate} from 'react-router-dom'
-const baseURL= import.meta.env.VITE_BACKEND_URL;
-function Home() {
+import { useNavigate } from "react-router-dom";
+const baseURL = import.meta.env.VITE_BACKEND_URL;
 
- const [listOfPosts, setListOfPosts] = useState([]);
- let navigate = useNavigate();
+function Home() {
+  const [listOfPosts, setListOfPosts] = useState([]);
+
+  let navigate = useNavigate();
+
   useEffect(() => {
     axios.get(`${baseURL}/posts`).then((res) => {
       setListOfPosts(res.data);
-      console.log(res.data);
     });
   }, []);
-  console.log(listOfPosts);
+
   return (
     <>
-    <Navbar />  
-    <div className='main'> {listOfPosts.map((post) => {
-        return (
-          <div className="post" key={post.id} onClick={()=>{navigate(`/post/${post.id}`)}}>
-            <div className="post-title"> {post.title}</div>
-            <div className="post-body"> {post.postText}</div>
-            <div className="post-footer"> {post.username}</div>
-            
-          </div>
-        );
-      })}</div></>
-  )
+      <Navbar />
+      <div className="main">
+        {" "}
+        {listOfPosts.map((post, key) => {
+          return (
+            <div
+              key={key}
+              className="post"
+              onClick={() => {
+                navigate(`/post/${post.id}`);
+              }}
+            >
+              <div className="post-title"> {post.title}</div>
+              <div className="post-body"> {post.postText}</div>
+              <div className="post-footer"> {post.username}</div>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
 }
 
-export default Home
+export default Home;
