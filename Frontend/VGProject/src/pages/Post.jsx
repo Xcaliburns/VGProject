@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Navbar from "../Navbar";
+import Navbar from "../Components/Navbar";
 
 function Post() {
   const baseURL = import.meta.env.VITE_BACKEND_URL;
