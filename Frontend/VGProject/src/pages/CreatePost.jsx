@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import axios from 'axios';
-import Navbar from "../Navbar";
+import Navbar from "../Components/Navbar";
 import { useNavigate } from "react-router-dom";
 
 

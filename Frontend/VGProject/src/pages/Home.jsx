@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Navbar from "../Navbar";
+import Navbar from "../Components/Navbar";
 import { useNavigate } from "react-router-dom";
 const baseURL = import.meta.env.VITE_BACKEND_URL;
 
