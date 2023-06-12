@@ -2,10 +2,10 @@ import { useState } from "react";
 
 import Navbar from "../Components/Navbar";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
+ import { useNavigate } from "react-router-dom";
 
 function Login() {
-  //   const navigate = useNavigate();
+    const navigate = useNavigate();
   const baseURL = import.meta.env.VITE_BACKEND_URL;
 
   const [username, setUsername] = useState("");
@@ -14,10 +14,18 @@ function Login() {
   const Login = () => {
     const data = { username: username, password: password };
     axios.post(`${baseURL}/users/login`, data).then((res) => {
-      console.log(res.data);
-      //   navigate('/');
+      if(res.data.error){
+        console.log(res.data);
+        alert(res.data.error);
+      }else{
+        sessionStorage.setItem("accessToken",res.data);
+        alert(`bonjour, ${username}`);
+      }
+      
+        navigate('/');
     });
   };
+  
   return (
     <div>
       <Navbar />

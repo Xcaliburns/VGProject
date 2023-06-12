@@ -2,7 +2,10 @@ const express = require("express");
 const router=express.Router();
 const { Users } = require("../models");
 const bcrypt = require ("bcrypt");
-const { Await } = require("react-router-dom");
+
+const{sign}=require("jsonwebtoken");
+const {validateToken} = require ("../middlewares/Authmiddleware");
+
 
 router.get("/",async(req,res)=>{
     const listOfUsers = await Users.findAll();
@@ -32,12 +35,14 @@ router.post("/login", async (req, res) => {
 
   const user = await Users.findOne({ where: { username: username } });
 
-  if (!user){ res.json({ error: "User Doesn't Exist" });}
-    else if(user.hashedpassword != null){
-  bcrypt.compare(password, user.hashedpassword).then((match) => {
-    if (!match) res.json({ error: "Wrong Username And Password Combination" });
+  if (!user){ return res.json({ error: "User Doesn't Exist" });}
 
-    res.json("YOU LOGGED IN!!!");
+    else if(user.hashedpassword != null){
+  bcrypt.compare(password, user.hashedpassword).then(async(match) => {
+    if (!match) {return res.json({ error: "Wrong Username And Password Combination" });}
+    
+    const accesstoken=sign({username : user.username , id:user.id},"YUUVM1Jjv0YIwWM")//string aleatoire pour proteger le token
+    res.json(accesstoken);
   });}
 });
 
