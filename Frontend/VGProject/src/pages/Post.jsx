@@ -24,19 +24,21 @@ function Post() {
 
   const addComment = () => {
     axios
-      .post(`${baseURL}/comments/`, { commentsBody: newComment, PostId: id }),
+      .post(`${baseURL}/comments/`, { commentsBody: newComment, PostId: id },
       {
         headers:{
-          accessToken : sessionStorage.getItem('accessToken'),
-        },}
+          accessToken : sessionStorage.getItem("accessToken"),
+        },})
       .then((res) => {
+          if (res.data.error) {
+          console.log(res.data.error);
+        } else {
         const commentToAdd ={commentsBody:newComment};
         setComments([...comments,commentToAdd]);
         setNewComment('');
-      });
+      }});
   };
-  console.log(id);
-  console.log(`les commentaires: ${comments}`);
+ 
 
   return (
     <div className="post-page">

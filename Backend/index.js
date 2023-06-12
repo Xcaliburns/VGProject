@@ -1,13 +1,13 @@
 const express = require('express');
 const app = express();
 const cors =require ('cors');
-
+require('dotenv').config();
 
 app.use(express.json());
 app.use(cors({origin:`http://localhost:5173`,credentials:true}));
 
 const db = require('./models'); // cet import est ici pour sequelize
-const port =parseInt(process.env.DB_HOST ?? "8000", 10);
+const port =parseInt(process.env.VITE_DB_HOST ?? "8000", 10);
 
 //Routers
 const postRouter= require ('./routes/Posts');

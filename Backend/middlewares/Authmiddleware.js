@@ -6,8 +6,9 @@ const validateToken = (req, res, next) => {
 
   if (!accessToken) return res.json({ error: "User not logged in!" });
                       
-  try {
-    const validToken = verify(accessToken, process.env.TOKEN_SECRET);
+  try { 
+    
+    const validToken = verify(accessToken, process.env.VITE_TOKEN_SECRET);
   
     if (validToken) {
       return next();
