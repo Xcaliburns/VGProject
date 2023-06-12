@@ -24,9 +24,13 @@ function Post() {
 
   const addComment = () => {
     axios
-      .post(`${baseURL}/comments/`, { commentsBody: newComment, PostId: id })
+      .post(`${baseURL}/comments/`, { commentsBody: newComment, PostId: id }),
+      {
+        headers:{
+          accessToken : sessionStorage.getItem('accessToken'),
+        },}
       .then((res) => {
-        const commentToAdd ={commentsBody:newComment}
+        const commentToAdd ={commentsBody:newComment};
         setComments([...comments,commentToAdd]);
         setNewComment('');
       });

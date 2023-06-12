@@ -14,7 +14,12 @@ function Login() {
   const Login = () => {
     const data = { username: username, password: password };
     axios.post(`${baseURL}/users/login`, data).then((res) => {
-      console.log(res.data);
+      if(res.data.error){
+        alert(res.data.error);
+      }else{
+        sessionStorage.setItem("accessToken",res.data);
+      }
+      
       //   navigate('/');
     });
   };
