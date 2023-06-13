@@ -2,13 +2,18 @@
  box-sizing: border-box;
   margin: 0 ;
   padding: 0;
-  --main-bg-color: dodgerblue;
-  --shadowbox-color:rgba(30, 143, 255, 0.538);
+  --main-bg-color: #4caf50;
+  --shadowbox-color:#45a049a7;
+    width:100%;
 }
 
 
 
+
 .navbar{
+  position: fixed;
+  top: 0;
+  z-index: 999;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -16,12 +21,14 @@
   width:100%;
   height:3rem;
   font-size: 2rem;  
+  position: absolute;
   background-color: var(--main-bg-color);  
 }
 .navbar a,.navbar a:hover{
   margin-left: 20px;
   text-decoration: none;  
   color:white;
+  
   
 }
  
@@ -41,7 +48,9 @@
   height: auto;
   width:50vw;
   border:1px solid  ;
-  margin-bottom: 1rem;
+  margin-top: 5rem;
+  margin-left: 1rem;
+  margin-bottom: 10rem;
   border-radius: 12px;
   box-shadow: 12px 12px  var(--shadowbox-color); ;
 }
@@ -108,9 +117,8 @@ span{
   display:flex;
   flex-direction: column;
   align-items: center;  
-  width:50vw;
-  text-align: left;
-  
+  width:40vw;
+  text-align: left;  
   height: 94vh;
 }
 
@@ -119,9 +127,9 @@ span{
   flex-direction: column;
   justify-content:center;
   align-items: center;
-  width: 90%;
+  width: 80%;
   height:25%;
-  margin-top: 12px;
+  margin-top: 50px;
   border:3px solid var(--main-bg-color);
   border-radius: 7px;
   font-size: 2rem;
@@ -133,6 +141,7 @@ input{
   width: 90%;
   margin-top: 10px;
   margin-bottom: 20px;
+  font-size: 1.5rem;
 }
 .listOfComments{
   display: flex;
@@ -144,16 +153,19 @@ input{
 }
 .comment{
   text-align: left;
+  
   border:3px solid var(--main-bg-color);
-  width: 100%;
+  width: 90%;
   height :200px;
   margin:10px ;
   border-radius: 5px;
   border:3px solid var(--main-bg-color);
+  font-size: 1.5rem;
   word-wrap: break-word;
-   
- 
+}
 
+.comment-text{
+  margin-left: 10px;
 }
 .left-side{
   width:50vw;
@@ -179,3 +191,93 @@ input{
 
 
 
+/* Styles for the createPostPage */
+.createPostPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Styles for the formContainer */
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+/* Styles for the labels */
+.formContainer label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Styles for the input fields */
+.formContainer input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Styles for the error messages */
+.formContainer span {
+  color: red;
+  margin-bottom: 10px;
+}
+
+/* Styles for the submit button */
+.formContainer button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formContainer button:hover {
+  background-color: #45a049;
+}
+.inputTitle,
+.inputUsername {
+  height: 3rem; /* Adjust the width as needed */
+}
+
+
+/* Styles for the loginPage */
+.loginPage {
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Styles for the input fields */
+.loginPage input {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Styles for the login button */
+.loginPage button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.loginPage button:hover {
+  background-color: #45a049;
+}

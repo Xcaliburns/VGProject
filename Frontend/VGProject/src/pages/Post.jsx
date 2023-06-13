@@ -31,7 +31,7 @@ function Post() {
         },})
       .then((res) => {
           if (res.data.error) {
-          console.log(res.data.error);
+          alert(res.data.error);
         } else {
         const commentToAdd ={commentsBody:newComment};
         setComments([...comments,commentToAdd]);
@@ -74,7 +74,7 @@ function Post() {
                   <div 
                   key={key} 
                   className="comment">
-                    {comment.commentsBody}
+                   <div className="comment-text"> {comment.commentsBody}</div>
                   </div>)
                 })}
               </div>
