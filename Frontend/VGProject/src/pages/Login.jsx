@@ -19,6 +19,7 @@ function Login() {
         alert(res.data.error);
       }else{
         sessionStorage.setItem("accessToken",res.data);
+        sessionStorage.setItem("username",username);
         alert(`bonjour, ${username}`);
       }
       
@@ -29,15 +30,23 @@ function Login() {
   return (
     <div>
       <Navbar />
-      <div>
+     
+      <div className="loginPage">
+         <div className="formContainer">
+          <label>username</label>
         <input
+        className="inputUsername"
           type="text"
+           placeholder="username"
           onChange={(e) => {
             setUsername(e.target.value);
           }}
         />
+        <label>password</label>
         <input
+        className="inputUsername"
           type="password"
+           placeholder="password"
           onChange={(e) => {
             setPassword(e.target.value);
           }}
@@ -45,6 +54,7 @@ function Login() {
         <button type="button" onClick={Login}>
           Login
         </button>
+      </div>
       </div>
     </div>
   );

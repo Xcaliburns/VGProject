@@ -37,7 +37,7 @@ const baseURL= import.meta.env.VITE_BACKEND_URL;
           <label>titre:  </label>
           <ErrorMessage name="title" component='span' />
           <Field
-            id="inputCreatePost"
+            className="inputUsername"
             name="title"
             placeholder="un super titre"
           ></Field>
@@ -51,7 +51,7 @@ const baseURL= import.meta.env.VITE_BACKEND_URL;
           <label>Username:  </label>
           <ErrorMessage name="username" component='span' />
           <Field
-            id="inputCreatePost"
+            className="inputUsername"
             name="username"
             placeholder="le nom de l'utilisateur"
           ></Field>

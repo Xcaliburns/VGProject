@@ -40,20 +40,20 @@ function Register() {
             <label>Username: </label>
             <ErrorMessage name="username" component="span" />
             <Field
-              id="inputCreatePost"
+              className="inputUsername"
               name="username"
-              placeholder="le nom de l'utilisateur"
+              placeholder="username"
             ></Field>
             <label>Password: </label>
             <ErrorMessage name="hashedpassword" component="span" />
             <Field
-              id="inputCreatePost"
+              className="inputUsername"
               type="password"
               name="hashedpassword"
               placeholder="Password"
             ></Field>
 
-            <button type="submit">enregistrer </button>
+            <button type="submit">submit </button>
           </Form>
         </Formik>
       </div>
