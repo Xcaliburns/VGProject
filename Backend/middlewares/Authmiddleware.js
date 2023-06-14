@@ -9,7 +9,7 @@ const validateToken = (req, res, next) => {
   try { 
     
     const validToken = verify(accessToken, process.env.VITE_TOKEN_SECRET);
-  
+   req.user = validToken;
     if (validToken) {
       return next();
     }

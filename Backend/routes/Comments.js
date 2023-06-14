@@ -9,11 +9,12 @@ router.get("/:postId",async (req,res)=>{
     res.json(comments);
 })
 
-router.post("/", validateToken,async (req,res)=>{
-    const comment =req.body;
-     await Comments.create(comment);
-    res.json(comment)
-})
-
+router.post("/", validateToken, async (req, res) => {
+  const comment = req.body;
+  const username = req.user.username;
+  comment.username = username;
+  await Comments.create(comment);
+  res.json(comment);
+});
 
 module.exports=router;
