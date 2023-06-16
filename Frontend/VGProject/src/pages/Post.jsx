@@ -27,13 +27,16 @@ function Post() {
       .post(`${baseURL}/comments/`, { commentBody: newComment, PostId: id },
       {
         headers:{
-          accessToken : sessionStorage.getItem("accessToken"),
+          accessToken : localStorage.getItem("accessToken"),
         },})
       .then((res) => {
           if (res.data.error) {
           alert(res.data.error);
         } else {
-        const commentToAdd ={commentBody:newComment};
+        const commentToAdd ={
+          commentBody:newComment,
+          username:res.data.username
+        };
         setComments([...comments,commentToAdd]);
         setNewComment('');
       }});
@@ -56,6 +59,7 @@ function Post() {
             <div className="right-side">
               <div className="addCommentContainer">
                 <input
+                className="input-area"
                   type="textArea"
                   placeholder="enter your comment..."
                   autoComplete="off"

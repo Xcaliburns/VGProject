@@ -143,6 +143,7 @@ input{
   margin-bottom: 20px;
   font-size: 1.5rem;
 }
+
 .listOfComments{
   display: flex;
   flex-direction: column-reverse;
