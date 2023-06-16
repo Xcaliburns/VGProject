@@ -2,7 +2,7 @@ const express = require("express");
 const router=express.Router();
 const { Users } = require("../models");
 const bcrypt = require ("bcrypt");
-
+const {validateToken}=require("../middlewares/Authmiddleware");
 const{sign}=require("jsonwebtoken");
 
 
@@ -41,10 +41,14 @@ router.post("/login", async (req, res) => {
   bcrypt.compare(password, user.hashedpassword).then(async(match) => {
     if (!match) {return res.json({ error: "Wrong Username And Password Combination" });}
     
-    const accesstoken=sign({username : user.username , id:user.id},"YUUVM1Jjv0YIwWM")//string aleatoire pour proteger le token
+    const accesstoken=sign({username : user.username , id:user.id},process.env.VITE_TOKEN_SECRET)//string aleatoire pour proteger le token
     res.json(accesstoken);
   });}
 });
+
+router.get("/auth",validateToken,(req,res)=>{
+  res.json(req.user);
+})
 
 
 
