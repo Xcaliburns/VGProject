@@ -6,13 +6,17 @@ import Post from "./pages/Post";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { AuthContext } from "./helpers/AuthContext";
-import axios from "axios";
-const baseURL = import.meta.env.VITE_BACKEND_URL;
+
+
 import "./App.css";
 
 function App() {
 
- const [authState, setAuthState] = useState(false);
+ const [authState, setAuthState] = useState({
+    username: "",
+    id: 0,
+    status: false,
+  });
 
 
 

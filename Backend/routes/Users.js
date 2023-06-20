@@ -41,8 +41,8 @@ router.post("/login", async (req, res) => {
   bcrypt.compare(password, user.hashedpassword).then(async(match) => {
     if (!match) {return res.json({ error: "Wrong Username And Password Combination" });}
     
-    const accesstoken=sign({username : user.username , id:user.id},process.env.VITE_TOKEN_SECRET)//string aleatoire pour proteger le token
-    res.json(accesstoken);
+    const accessToken=sign({username : user.username , id:user.id},process.env.VITE_TOKEN_SECRET)//string aleatoire pour proteger le token
+    res.json({token : accessToken , username : username , id : user.id});
   });}
 });
 
