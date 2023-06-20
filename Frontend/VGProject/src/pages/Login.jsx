@@ -9,7 +9,7 @@ function Login() {
   const navigate = useNavigate();
   const baseURL = import.meta.env.VITE_BACKEND_URL;
 
-  const {setAuthState} =useContext(AuthContext);
+  const { setAuthState } = useContext(AuthContext);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -21,8 +21,12 @@ function Login() {
         console.log(res.data);
         alert(res.data.error);
       } else {
-        localStorage.setItem("accessToken", res.data);
-        setAuthState(true);
+        localStorage.setItem("accessToken", res.data.token);
+        setAuthState({
+          username: res.data.username,
+          id: res.data.id,
+          status: true,
+        });
         alert(`bonjour, ${username}`);
       }
 
